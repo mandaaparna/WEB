@@ -1,0 +1,19 @@
+h1{
+text-align:center;
+}
+.leftright {
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  color:red;
+}
+.topbottom {
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+td {
+  width: 120px;
+  height: 120px;
+}
+table {
+  margin: 12px auto;
+}
