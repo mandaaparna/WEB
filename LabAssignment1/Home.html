@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+    <style>
+        .hd{
+            color: black;
+            font-weight: bold;
+        }
+        a{
+            color: floralwhite;
+            font-weight: bold;
+        }
+        li{
+            margin-top: 20%;
+            margin-bottom: 20%;
+        }
+        ul
+        {
+            list-style-type: none;
+            /**/
+            height: 90%;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: block;
+            position: absolute;
+            font-size:160%;
+            background-color: #f1f1f1;
+            min-width: 250px;
+            max-height: 200px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+
+        }
+.category
+{
+    top:170px;
+    left:170px;
+}
+.order
+{
+    top:105px;
+    left:210px;
+}
+        .dropdown-content a {
+            color: black;
+            font-size:40%;
+            text-decoration: none;
+            display: block;
+            margin-top: 0%;
+            margin-bottom: 0%;
+        }
+
+    </style>
+    <script>
+        var app = angular.module('myapph', []);
+        app.controller('initCtrl',['$scope', '$window', function($scope,$window) {
+            $scope.url = window.location.href;
+            $scope.log_url=$scope.url.substring(0,$scope.url.indexOf('Home.htm'))+'Login.html';
+            $scope.user = $scope.url.substring($scope.url.indexOf('user=')+5,$scope.url.length);
+            $scope.load_content = function(evt) {
+ console.log(evt);
+ switch (evt) {
+
+     case 'P':$scope.p_link="Profile.html?user="+$scope.user;
+         document.getElementById("loadcontent").innerHTML='<object width="1260" height="620" type="text/html" data='+$scope.p_link+' ></object>';
+              document.title='My Profile'
+               break;
+
+     case 'R':document.getElementById("loadcontent").innerHTML='<object width="1260" height="620" type="text/html" data="Recent Enrollments.html" ></object>';
+              document.title='Recent Enrollments';
+              $scope.Order=false;
+                break;
+
+     case 'A':document.getElementById("loadcontent").innerHTML='<object width="1260" height="620" type="text/html" data="All Enrollments.html" ></object>';
+              document.title='All Enrollments';
+              $scope.Order=false;
+                break;
+
+     case 'F':$scope.c_link="ComputerScience.html?user="+$scope.user;
+         //document.getElementById("loadcontent").innerHTML='<object width="1260" height="620" type="text/html" data="Computer Science.html" ></object>';
+         document.getElementById("loadcontent").innerHTML='<object width="1260" height="620" type="text/html" data='+$scope.c_link+' ></object>';
+              document.title='Computer Science';
+              $scope.Category=false;
+                break;
+
+     case 'S':$scope.EE_link="ElectricalEngineering.html?user="+$scope.user;
+         document.getElementById("loadcontent").innerHTML='<object width="1260" height="620" type="text/html" data='+$scope.EE_link+' ></object>';
+              document.title='Electrical Engineering';
+              $scope.Category=false;
+                break;
+
+ }
+
+
+            }
+
+        }]);
+    </script>
+</head>
+<body ng-app="myapph" ng-controller="initCtrl">
+<div class="container-fluid" ng-init="Order=false Category=false" >
+<div class="row hd" style="background-color: blueviolet; color:floralwhite; padding-top: 1%;padding-bottom: 1%; font-size:130%">
+<!--<strong class=" col-1" style="font-family: 'Times New Roman'">MOOC</strong>-->
+    <img src="mooc1.png" width="150" height="50" class="col-2">
+<span class = "offset-sm-7 offset-md-8 col-1">Hi {{user}}</span>
+    <!--<span class = "col-1 fa fa-shopping-cart fa-lg" style="margin-top: 0.5%; margin-bottom: 0.5%" ></span>-->
+    <a class = "col-sm-2 col-md-1 " href="{{log_url}}"><u>Logout</u></a>
+</div>
+    <div class="row">
+    <div  class="col-2" style="background-color: blueviolet;">
+        <ul id="UL1" class="dropdown" style="font-size: x-large;">
+            <li >
+                <a ng-click="load_content('P')" href="#" > My Profile</a>
+            </li>
+            <li>
+                <a ng-click="Category=false;Order=!Order" href="#">Enrollments <i class="fa fa-caret-right"></i></a>
+                <ul  ng-show="Order" class="dropdown-content order">
+                    <li><a ng-click="load_content('R')" href="#">Recent Enrollments</a></li>
+                    <li><a ng-click="load_content('A')" href="#">All Enrollments</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" ng-click="Order=false;Category=!Category">Courses <i class="fa fa-caret-right"></i></a>
+                <ul  ng-show="Category" class="dropdown-content category">
+                    <li><a ng-click="load_content('F')" href="#">Computer Science</a></li>
+                    <li><a ng-click="load_content('S')" href="#">Electrical Engineering</a></li>
+
+                </ul>
+
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-10" id="loadcontent" style="margin-right: 0%;margin-left: 0;padding-left: 0;padding-right: 0">
+
+        <div style="position: relative;width:100%">
+            <img  src="homebg1.jpg" alt="background">
+            <div style="position: absolute;top:3%;left:3%;width:95%"><h1 style="font-family: Harrington;"><strong>Welcome to MOOC!! <img src="smiley.png" width="50" height="50"></strong></h1>
+                <h3 ><em>"I do believe something very magical can happen when you read a book" ~ J.K.Rowling </em></h3>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+</div>
+</div>
+<script>
+
+ /*   $( window ).resize(function() {
+        var height=window.innerHeight;
+        console.log(height)
+        height=height-110;
+        height=height.toString()+'px';
+        document.getElementById("UL1").style.minHeight = height;
+    });
+    var height=window.innerHeight;
+    console.log(document.getElementById("UL1"))
+    height=height-110;
+    height=height.toString()+'px';
+    document.getElementById("UL1").style.minHeight = height;*/
+</script>
+</body>
+</html>

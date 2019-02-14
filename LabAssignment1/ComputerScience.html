@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computer Science</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+    .noshow
+    {
+        display:none;
+    }
+
+</style>
+
+</head>
+<body >
+<h2 >Computer Science
+</h2><br>
+<div id="select" align="center">
+    <label style="font-size: x-large;font-weight: bold">Course Career: </label>
+    <select  id="s" style="font-size: large ;width:20% ;align: center">
+        <option value="G" selected>Graduate</option>
+        <option value="U">UnderGraduate</option>
+
+</select>
+</div>
+<br><br>
+<div class="table-responsive" id="G">
+<table class="table" border="1" cellspacing="0" cellpadding="10" style="text-align: center" align="center">
+    <tr style="background-color: lightgrey;color: steelblue">
+        <th></th>
+        <th>Class</th>
+        <th>Room</th>
+        <th>Instructor</th>
+        <th>Days</th>
+        <th>Time</th>
+        <th>Seats Remaining</th>
+        <th>Credits</th>
+        <th class="disp"></th>
+    </tr>
+    <tr>
+        <td><img src="NA.jpg" width="50" height="50"></td>
+        <td>Network Architecture</td>
+        <td>
+            Katz Hall-Rm 00207
+        </td>
+        <td>
+            Baek-Young Choi
+        </td>
+        <td>
+            TuTh
+        </td>
+        <td>
+            11:30AM-12:45PM
+        </td>
+        <td>4</td>
+        <td>3</td>
+        <td class="disp"><a href="#" onclick="enroll(this,'NA')"> <img src="enroll.png" width="150" height="50"></a></td>
+    </tr>
+    <tr>
+        <td><img src="PBDM.jpg" width="50" height="50"></td>
+        <td>Principles of Big Data Management</td>
+        <td>
+            Cockefair Hall-Rm 00104
+        </td>
+        <td>
+            Praveen Rao
+        </td>
+        <td>
+            MoWe
+        </td>
+        <td>
+            4:00PM-5:15PM
+        </td>
+        <td>15</td>
+        <td>3</td>
+        <td class="disp"></td>
+    </tr>
+    <tr>
+        <td><img src="PA.jpg" width="50" height="50"></td>
+        <td>Parallel Algorithms</td>
+        <td>
+            Haag Hall-Rm 00201
+        </td>
+        <td>
+            Yijie Han
+        </td>
+        <td>
+            MoWeFr
+        </td>
+        <td>
+            1:00PM-1:50PM
+        </td>
+        <td>2</td>
+        <td>3</td>
+        <td class="disp"></td>
+    </tr>
+    <tr>
+        <td><img src="CC.jpg" width="50" height="50"></td>
+        <td>Cloud Computing</td>
+        <td>
+            Katz Hall-Rm 00008
+        </td>
+        <td>
+            Baek-Young Choi
+        </td>
+        <td>
+            TuTh
+        </td>
+        <td>
+            1:00PM-2:15PM
+        </td>
+        <td>26</td>
+        <td>3</td>
+        <td class="disp"><a href="#" onclick="enroll(this,'CC')"> <img src="enroll.png" width="150" height="50"></a></td>
+    </tr>
+    <tr>
+        <td><img src="FSS.jpg" width="50" height="50"></td>
+        <td>Formal Software Specification</td>
+        <td>
+            Royal Hall-Rm 00206
+        </td>
+        <td>
+            Baek-Young Choi
+        </td>
+        <td>
+            MoWeFr
+        </td>
+        <td>
+            3:00PM-3:50PM
+        </td>
+        <td>8</td>
+        <td>3</td>
+        <td class="disp"><a href="#" onclick="enroll(this,'FSS')"> <img src="enroll.png" width="150" height="50"></a></td>
+    </tr>
+</table>
+</div>
+<div class="noshow table-responsive" id="U" >
+<!---------------------------------------------------------------------------->
+    <table class="table" border="1" cellspacing="0" cellpadding="10" style="text-align: center" align="center">
+        <tr style="background-color: lightgrey;color: steelblue">
+            <th></th>
+            <th>Class</th>
+            <th>Room</th>
+            <th>Instructor</th>
+            <th>Days</th>
+            <th>Time</th>
+            <th>Seats Remaining</th>
+            <th>Credits</th>
+            <th class="disp"></th>
+        </tr>
+        <tr>
+            <td><img src="DS.jpg" width="50" height="50"></td>
+            <td>Data Structures</td>
+            <td>
+                Katz Hall-Rm 00207
+            </td>
+            <td>
+                Baek-Young Choi
+            </td>
+            <td>
+                TuTh
+            </td>
+            <td>
+                11:30AM-12:45PM
+            </td>
+            <td>4</td>
+            <td>3</td>
+            <td class="disp"><a href="#" onclick="enroll(this,'DS')"> <img src="enroll.png" width="150" height="50"></a></td>
+        </tr>
+        <tr>
+            <td><img src="DBMS.jpg" width="50" height="50"></td>
+            <td>Database Management System</td>
+            <td>
+                Cockefair Hall-Rm 00104
+            </td>
+            <td>
+                Praveen Rao
+            </td>
+            <td>
+                MoWe
+            </td>
+            <td>
+                4:00PM-5:15PM
+            </td>
+            <td>15</td>
+            <td>3</td>
+            <td class="disp"></td>
+        </tr>
+        <tr>
+            <td><img src="SE.jpg" width="50" height="50"></td>
+            <td>Software Engineering</td>
+            <td>
+                Haag Hall-Rm 00201
+            </td>
+            <td>
+                Yijie Han
+            </td>
+            <td>
+                MoWeFr
+            </td>
+            <td>
+                1:00PM-1:50PM
+            </td>
+            <td>2</td>
+            <td>3</td>
+            <td class="disp"></td>
+        </tr>
+        <tr>
+            <td><img src="OS.jpg" width="50" height="50"></td>
+            <td>Operating Systems</td>
+            <td>
+                Katz Hall-Rm 00008
+            </td>
+            <td>
+                Baek-Young Choi
+            </td>
+            <td>
+                TuTh
+            </td>
+            <td>
+                1:00PM-2:15PM
+            </td>
+            <td>26</td>
+            <td>3</td>
+            <td class="disp"><a href="#" onclick="enroll(this,'OS')"> <img src="enroll.png" width="150" height="50"></a></td>
+        </tr>
+        <tr>
+            <td><img src="C.jpg" width="50" height="50"></td>
+            <td>C Programming</td>
+            <td>
+                Royal Hall-Rm 00206
+            </td>
+            <td>
+                Baek-Young Choi
+            </td>
+            <td>
+                MoWeFr
+            </td>
+            <td>
+                3:00PM-3:50PM
+            </td>
+            <td>8</td>
+            <td>3</td>
+            <td class="disp"><a href="#" onclick="enroll(this,'C')"> <img src="enroll.png" width="150" height="50"></a></td>
+        </tr>
+    </table>
+    <!------------------------------------------------------------>
+
+</div>
+<script>
+    var cartarr = [];
+console.log($("#s"))
+    $("#s").on('change',function(){
+
+
+        if($(this)[0].value=='G')
+        {
+            $("#G").removeClass('noshow');
+            $("#U").addClass('noshow');
+        }
+        else if($(this)[0].value=='U')
+        {
+
+                $("#U").removeClass('noshow');
+                $("#G").addClass('noshow');
+
+        }
+    });
+    function enroll(obj,val) {
+        var res= $(obj).parent();
+        res[0].innerHTML='<strong style="color: green">Successfully enrolled </strong>';
+    }
+</script>
+
+<script>
+    var url=window.location.href;
+    console.log(url.indexOf('user='));
+
+    if(url.indexOf('user=')>=0)
+    var user = url.substring(url.indexOf('user=')+5,url.length);
+    console.log(user.indexOf('Guest'));
+    if(user.indexOf('Guest')>=0)
+    {
+        $('.disp').addClass('noshow');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .lbutton
+        {
+            background-color:black;
+            color: white;
+        }
+
+        .blink {
+            background:none!important;
+            color:inherit;
+            border:none;
+            padding:0!important;
+            font: inherit;
+            /*border is optional*/
+            border-bottom:1px solid #444;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .ast:after{
+          content:" *";
+            font-weight: bold;
+            color: red;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('initCtrl',['$scope', '$window', function($scope,$window) {
+            $scope.users=[
+                {username:'LYenugu',password:'12345@LY'},
+                {username:'AManda',password:'12345@AM'},
+                {username:'RBoyapati',password:'12345@RB'}
+            ];
+            $scope.err_msg='';
+            $scope.url=$window.location.href;
+            $scope.url=$scope.url.substring(0,$scope.url.indexOf('Login.htm'))
+            $scope.login = function() {
+                i=0;
+
+                for (;i< $scope.users.length;i++)
+                {
+                    if($scope.myName==$scope.users[i].username && $scope.myPassword==$scope.users[i].password)
+                    {
+                        $scope.err_msg='';
+
+                        $scope.url=$scope.url+'Home.html?user='+$scope.myName;
+                        $window.location.href =$scope.url;
+
+                        break;
+                    }
+                }
+                if(i==$scope.users.length)
+                {
+                    $scope.err_msg='Invalid Login Credentials';
+                }
+
+
+            }
+            $scope.guestuser = function() {
+                $scope.url=$scope.url+'Home.html?user=Guest';
+                $window.location.href =$scope.url;;
+            }
+        }]);
+    </script>
+
+</head>
+<body ng-app="myApp" ng-controller="initCtrl" style="background: burlywood" >
+
+<div class="container" ng-init="myCol='red'" >
+    <div class="row">
+    <div class="offset-2 col-8">
+    <img src="header.jpg" alt="MOOC" style="width: inherit" height="200">
+    </div>
+    </div>
+
+<form  ng-model="myForm" name="myForm" method="get" ng-submit="login()" style="margin-top: 4%; border-style: solid; padding-top: 5%;padding-bottom: 5%" class="offset-3 col-6 lform" >
+    <div class="row">
+    <div class=" offset-2 col-10">
+        <label class="ast"><strong> Username</strong></label><br>
+       <input ng-model="myName" name="myName" type="text" maxlength="50" class="col-8" placeholder="Enter the Username" required>
+        <h6 ng-show="myForm.myName.$touched && myForm.myName.$invalid" style="color:{{myCol}}">Username is required.</h6>
+
+    </div>
+    </div>
+    <div class="row">
+    <div class="offset-2 col-10">
+        <label class="ast"><strong> Password</strong></label><br>
+       <input ng-change="validate_password()" ng-model="myPassword" name="myPassword"  type="password" maxlength="20" class="col-8" placeholder="Enter the Password" required>
+        <h6 ng-show="myForm.myPassword.$touched && myForm.myPassword.$invalid" style="color:{{myCol}}">Password is required.</h6>
+        <h6 style="color:{{myCol}}">{{err_msg}}</h6>
+    </div>
+    </div>
+    <div class="row">
+    <div class="offset-2 col-10">
+        <input type="submit" value="Login" class=" col-3 lbutton" style="margin-top: 4%">
+        <input type="button" value="SignUp" onclick="signup" class="offset-2 col-3 lbutton" style="margin-top: 4%">
+        <div style="margin-top: 4%" class="offset-2" >
+            <input type="button" class="col-5 blink" ng-click="guestuser()" value="Guest User">
+        </div>
+
+
+    </div>
+    </div>
+
+</form>
+
+</div>
+
+</body>
+</html>

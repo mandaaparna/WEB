@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app = angular.module('myprofile', []);
+        app.controller('initCtrl',['$scope', '$window', function($scope,$window) {
+            $scope.url = window.location.href;
+            $scope.user = $scope.url.substring($scope.url.indexOf('user=')+5,$scope.url.length);
+
+        if($scope.user.indexOf('LYenug')>=0)
+        {
+            console.log(1)
+            document.getElementById("disp_pic").innerHTML='<img src=LY.jpeg>';
+            document.getElementById("info").innerHTML='<strong>Username : </strong>LYenugu<br><br><strong>E-mail : </strong>LYenugu@gmail.com<br><br><strong>Contact : </strong>9999999999';
+
+        }
+        else if($scope.user.indexOf('RBoyapat')>=0)
+        {
+            document.getElementById("disp_pic").innerHTML='<img src=RB.jpeg>'
+            document.getElementById("info").innerHTML='<strong>Username : </strong>RBoyapati<br><br><strong>E-mail : </strong>RBoyapati@gmail.com<br><br><strong>Contact : </strong>9999999999';
+
+        }
+        else if($scope.user.indexOf('AMand')>=0)
+        {
+            document.getElementById("disp_pic").innerHTML='<img src=AM.jpeg>'
+            document.getElementById("info").innerHTML='<strong>Username : </strong>AManda<br><br><strong>E-mail : </strong>AManda@gmail.com<br><br><strong>Contact : </strong>9999999999';
+
+        }
+        }]);
+    </script>
+</head>
+<body ng-app="myprofile" ng-controller="initCtrl" >
+<h2>
+    My Profile<br><br></h2>
+
+    <div class="container-fluid">
+        <div class="row">
+    <div class="offset-0 col-6" id="disp_pic">
+    </div>
+        </div>
+        <h2>Contact Information</h2>
+        <div class="row">
+
+    <div class="offset-0 col-6" id="info">
+
+    </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
