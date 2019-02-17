@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  // 1. write Typescript code in "app.component.ts" to work with calculator
+</head>
+<body >
+<h1 style="text-align: center"> Calculator </h1><br><br>
+<div class="container">
+  <div class="row">
+
+    <div class="offset-4 col-4">
+      <div style="background-color: black ; color: white; text-align: right;min-height: 80px;font-size: large" class="col-12">
+        <div id="eqn" >{{eqn}}</div>
+        <div id="num">{{val_1}}</div>
+      </div>
+      <button style="padding: 10%; background-color: lavenderblush" class="col-3" *ngFor="let number of v"  id={{number}} (click)="val1($event)">{{number}}</button>
+       </div>
+      </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  // 1. write Typescript code in "app.component.ts" to work with ToDo list
+</head>
+<body style="background-color: black;min-height: 700px; ">
+<h1 style="color: white"> To Do List</h1><br><br>
+<div class="container">
+  <div class="row">
+<div class="col-4 offset-4" style="color: blanchedalmond; font-size: large; margin-bottom: 2%"  *ngFor="let val of items"  id="{{val.id}}"  >
+  <span class="col-8 " >{{val.text}}</span>
+  <span id={{val.id}} class=" col-2 {{val.status}}" style="float: right" (click)="completeItem($event)"> </span>
+  <span id={{val.id}} class="fa fa-md fa-trash  col-2 " style="float: right" (click)="deleteItem($event)"></span>
+</div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-5" id="count" style="color: white;font-size: large">Completed:{{comp}} Pending:{{pen}}</div></div>
+  <br><br>
+<div class="row">
+  <input class="col-3 offset-4" id="push_val" type="text"><button class="col-1" (click)="submitNewItem()">Add</button>
+</div>
+
+</div>
+
+</body>
+</html>
