@@ -1,0 +1,7 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+.image{
+  height:60em; background-size:cover; width:100%;
+  background-image:url('~images/bg.jpg');
+  background-position:50% 50%;
+}
