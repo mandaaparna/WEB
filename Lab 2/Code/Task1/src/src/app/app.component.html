@@ -1,0 +1,21 @@
+<h3 style="color:white; margin-left:2%">Snake Rewind</h3>
+<div style="margin-left:2%"><select style="min-width:220px; margin-right: 2%;" id="sel_mode">
+<option  *ngFor="let mode of getKeys(levels)" value={{mode}}>{{levels[mode]}}</option>
+</select> <button class="fa fa-play" style="background-color: black;border-style:none; padding:0;margin:0; color: #00fF11;position: relative;top:6px;" [ngClass]="{'disable-clicks': game_on}" (click)="StartGame()" id="play_button"></button>
+<div style="position: relative;float: right;color: white;margin-right: 3%">
+  <strong class="score" >Score: {{points}}</strong><br>
+  <strong class="best-score" >Best Score: {{highest_score}}</strong>
+</div>
+</div>
+<br>
+<div class="result" id="result" #result>
+<img src="./assets/game_over.png"><br>
+Game Over!!<br>
+<span id="high_score_res">Your new highest Score!!! <br></span>
+Your Score {{points}}
+</div>
+<div class="game-container" >
+  <div class="row" *ngFor="let column of plank; let i = index;">
+    <div class="column" [ngStyle]="{'background-color': setCellColor(i, j)}" *ngFor="let row of column; let j = index"></div>
+  </div>
+</div>

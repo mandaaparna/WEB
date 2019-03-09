@@ -1,0 +1,43 @@
+.fa{
+  font-size:30px;
+}
+
+
+.row {
+  height: 26px;
+}
+
+.column {
+  border: 1px solid rgba(97, 131, 138, .1);
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+.game-container
+{
+margin-left : 2%;	
+}
+
+.disable-clicks {
+  pointer-events: none;
+}
+
+.result
+{
+	position:Absolute;
+	top:150px;
+	left:400px;
+	z-index:1;
+	background-color:white;
+	color:black;
+	display: block;
+            font-size:160%;
+            min-width: 250px;
+			max-width:500;
+            min-height: 300px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			font-family:Times;
+			text-align:center;
+            
+}

@@ -1,0 +1,30 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+body{
+  height:60em; background-size:cover; width:100%;
+  background-image:url('~images/Header.jpg');
+  background-position:50% 50%;
+}
+.overlay
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  color: white;
+  display: inline-block;
+}
+.circle-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+  padding: 30px;
+}

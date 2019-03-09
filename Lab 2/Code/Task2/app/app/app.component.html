@@ -1,0 +1,74 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Text Translator</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container" style="min-height: 705px">
+  <br>
+<!--<div >
+  <img src="assets/Header.jpg">
+</div>-->
+  <div class="overlay" style="display: none">
+    <br>
+    <div class="row">
+      <div class="col-lg-1 col-md-1 col-sm-1 col-sm-offset-11" style="display:inline;">
+      <a href="javascript:void(0)" (click)="overlayOff()" style="font-size: x-large">&times;</a>
+      </div>
+    </div>
+    <br>
+      <div class="row" style="margin-top: 10%">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-4" style="display:inline; ">
+      <h2 style="color: grey" id="text">Speak now</h2>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2" style="display:inline;">
+        <i  (click)="overlayOff()" style="display:inline ; font-size: 100px; color: red; background-color: white" class=" circle-icon fa fa-microphone fa-lg btn bg-primary btn-lg col-12 "></i>
+      </div>
+    </div>
+
+  </div>
+
+
+    <div class="row" >
+      <div class="col-lg-9 col-md-9 col-sm-9 " style="display:inline;">
+    <input class="form-control" type="text" id="search_criteria" style="font-weight: bold;text-transform: uppercase;" #search_criteria  value={{input}}>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2">
+      <i  (click)="getResult()" style="display:inline; " class="fa fa-search fa-lg btn bg-primary btn-lg col-12 " #search_btn></i>
+        <i  (click)="overlayOn()" style="display:inline; margin-left: 5%" data-toggle="tooltip" title="Search by voice" class="fa fa-microphone fa-lg btn bg-primary btn-lg col-12 " id="recorder"></i>
+      </div>
+      </div>
+
+  <br>
+<br>
+  <div class="offset-4 col-4" style="" *ngIf="show_data">
+    <h3><strong>{{result.name}}</strong></h3>
+    <img src="{{result.img_url}}" alt="cannot load the image">
+    <h4><em>{{result.type_res}}</em></h4>
+    <br>
+
+
+
+    <h3><strong>Description: </strong></h3>
+    <h4><strong><em>{{result.description_res}}</em></strong></h4>
+    <h3 *ngIf="show_desc"><strong>Detailed-Description: </strong></h3>
+    <h4><strong><em>{{result.detailed_desc}}</em></strong></h4>
+    <h4><em>For more info : <a href="{{result.url_res}}" target="_blank"><strong>{{result.url_res}}</strong></a></em></h4>
+  </div>
+  </div>
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
+</body>
+</html>
