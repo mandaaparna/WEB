@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Add Question</h1>
+<mat-dialog-content>
+	<div style="min-height:400px; ">
+
+		<select class="offset-3" id="ls" (change)="hide()">
+			<option value="M">Multiple Choice Question</option>
+			<option value="D">Descriptive Question</option>
+
+		</select>
+		<br>
+		<div >
+
+			<textarea id="qs" class="offset-1" placeholder="Enter the question here"  style="margin-top: 2%;margin-bottom:2%;height: 90px;width:350px;"></textarea>
+			<br>
+			<label class="hd"><h5>Option A</h5></label>
+			<input class="offset-1 hd" type="text" id="A">
+			<br>
+			<label class="hd" ><h5>Option B</h5></label>
+			<input class="offset-1 hd" type="text" id="B">
+			<br>
+			<label class="hd"><h5>Option C</h5></label>
+			<input class="offset-1 hd" type="text" id="C">
+			<br>
+			<label class="hd"><h5>Option D</h5></label>
+			<input class="offset-1 hd" type="text" id="D">
+			<br>
+			<label class="hd"><h5>Select Answer</h5></label>
+			<select class="offset-1 hd" id="opt">
+				<option value="A">A</option>
+				<option value="B">B</option>
+				<option value="C">C</option>
+				<option value="D">D</option>
+			</select>
+			<br>
+			<label id="Pt1"><h5>Points</h5></label>
+			<input class="offset-1 hd" type="text" id="Pt">
+			<br>
+			<label ><h5>Level</h5></label>
+			<select class="offset-1 " id="lev">
+				<option value="Ea">Easy</option>
+				<option value="Md">Medium</option>
+				<option value="Df">Difficult</option>
+			</select>
+			<br>
+
+		</div>
+	</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+	<button mat-button style="background-color: green" (click)="add_question()"><strong>Add</strong></button>
+	<button mat-button type="button" mat-dialog-close><strong>Cancel</strong></button>
+</mat-dialog-actions>

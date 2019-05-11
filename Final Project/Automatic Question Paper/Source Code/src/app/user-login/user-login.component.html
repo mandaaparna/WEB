@@ -1,0 +1,49 @@
+<!--<header class="navbar navbar-expand-lg navbar-light bg-light">
+  <a center class="navbar-brand" href="#">Customer CRUD operations</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</header>-->
+<div class="col-12" style="background:black; min-height:730px">
+<div class="container"  >
+  <br>
+  <div class="row">
+    <div class="offset-4 col-8">
+      <img src="assets/onlineexam2.jpg" alt="MOOC" style="width: 350px" height="190">
+    </div>
+  </div>
+
+  <form  [formGroup]="UserForm" (ngSubmit)="onSubmit()" name="myForm" method="get"  style="min-height:380px;background:white;margin-top: 2%; border-style: solid; padding-top: 5%;padding-bottom: 5%;z-index: 2;" class="offset-1 col-10 lform"  >
+    <div class="row">
+      <div class="form-group offset-2 col-10">
+        <label class="ast control-label"><strong> Username</strong></label><br>
+        <input  id="UName" formControlName="UName" type="text" maxlength="50" class="form-control col-8" placeholder="Enter the Username" [ngClass]="{ 'is-invalid': (submitted && f.UName.errors)|| login_error }">
+        <div *ngIf="submitted && f.UName.errors" class="invalid-feedback" >
+          <div *ngIf="f.UName.errors != null && f.UName.errors.required">UserName is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group offset-2 col-10">
+        <label class="ast control-label"><strong> Password</strong></label><br>
+        <input  id="UPassword" formControlName="UPassword" type="password" maxlength="20" class="form-control col-8" placeholder="Enter the Password" [ngClass]="{ 'is-invalid': (submitted && f.UPassword.errors)|| login_error }">
+        <div *ngIf="submitted && f.UPassword.errors" class="invalid-feedback">
+          <div *ngIf="f.UPassword.errors != null && f.UPassword.errors.required">Password is required</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!(f.UPassword.errors!=null || f.UName.errors != null) && login_error" id="error_div" class="offset-2" style="color: red"> <b>invalid login credentials</b></div>
+
+    <div class="row">
+      <div class="offset-2 col-10">
+        <input type="submit" value="Login" class=" col-3 lbutton btn btn-primary" style="margin-top: 4%;background-color: darkblue">
+        <input type="button" value="Sign Up" (click)="onSignUp()" class=" offset-2 col-3 lbutton btn btn-success" style="margin-top: 4%">
+
+      </div>
+     </div>
+
+   </form>
+
+ </div>
+ </div>

@@ -1,0 +1,47 @@
+<div style="background:black; min-height:730px;">
+<div class="row">
+	<div *ngIf="collapse"class="col-2" style="background-color: darkblue;color:white;min-height: 730px">
+		<h3> Welcome, </h3>
+		<h3 > &nbsp;{{faculty_name}} </h3>
+		<br>
+		<h5 (click)="onNavigate(number)" style="cursor: pointer;padding-top: 4%;padding-bottom: 4%;margin-top: 5%;margin-bottom: 5%;" *ngFor="let number of v">{{number}}</h5>
+
+
+	</div>
+	<div id="content-div" class="col-10">
+		<i class="fa fa-bars fa-3x" (click)="onCollapse()" style="color: white;"></i>
+		<button (click)="logout()" style="cursor: pointer;position:relative;float: right;right:15px; top:10px;"><i class="fa fa-lg fa-sign-out fa-4x "></i></button>
+		<br>
+		<div style="overflow: scroll;border: black;border-style: solid;background-color: white;color:darkblue;margin-top: 2%;padding-top: 2%;padding-bottom: 1%;max-height: 620px;min-height: 620px;" class="col-12">
+			<select (change)="getQuestionList()" id="course" class="offset-2 col-6">
+				<option></option>
+				<option *ngFor="let course of courses" value="{{course.fc_id}}" > {{course.CourseName}} </option>
+			</select>
+			<button class="offset-1" (click)="add()" style="cursor: pointer;padding: 0px;border: none;"><i class="fa fa-plus fa-2x fa-lg" style="color:green;background-color: white"></i></button>
+			<br><br><br>
+			<h4 class="offset-2">Descriptive Questions</h4><hr>
+			<ol class="offset-2">
+			<div *ngFor="let desc of questions_desc" style="padding: 0px;margin-top: 2%;margin-bottom: 2%;">
+				<li>
+
+				<h4 style="color: black;" class="col-12">{{desc.Question}} </h4></li>
+				<!--<div class="col-3"> <a href="#">Generate Paper</a></div>-->
+			</div>
+			</ol>
+			<h4 class="offset-2">Multiple Choice Questions</h4><hr>
+			<ol class="offset-2">
+
+			<div *ngFor="let mcq of questions_mul" style="padding: 0px;margin-top: 2%;margin-bottom: 2%;">
+
+				<li><h4 style="color: black;" class="col-12">{{mcq.Question}} </h4></li>
+				<!--<div class="col-3"> <a href="#">Generate Paper</a></div>-->
+			</div>
+
+			</ol>
+</div>
+
+  </div>
+  </div>
+
+</div>
+

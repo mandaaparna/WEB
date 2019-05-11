@@ -1,0 +1,36 @@
+<div style="background:black; min-height:730px;">
+    <div class="row">
+        <div *ngIf="collapse"class="col-2" style="background-color: darkblue;color:white;min-height: 730px">
+            <h3> Welcome, </h3>
+            <h3 > &nbsp;{{student_name}} </h3>
+            <br>
+            <h5 (click)="onNavigate(number)" style="cursor: pointer;padding-top: 4%;padding-bottom: 4%;margin-top: 5%;margin-bottom: 5%;" *ngFor="let number of v">{{number}}</h5>
+        </div>
+
+ <div class="container" >
+
+          <i class="fa fa-bars fa-3x" (click)="onCollapse()" style="color: white;"></i>
+          <button (click)="logout()" style="cursor: pointer;position:relative;float: right;right:15px; top:10px;"><i class="fa fa-lg fa-sign-out fa-4x "></i></button>
+          <br>
+	  <div style="overflow: scroll;border: black;border-style: solid;background-color: white;margin-top: 2%;padding-top: 2%;padding-bottom: 1%;max-height: 620px;min-height: 620px;" id="content-div" class="col-12">
+
+              <div *ngFor="let enrollment of enrollments" class="col-12" id="enrollment.BookID">
+                  <h3 style="color: darkblue;display: inline">{{enrollment.CourseName}}</h3>
+                  <button *ngIf="enrollment.btnvis" (click)="add(enrollment._id,enrollment.ind)"  style="background-color:white;position: absolute;float: right;right: 20px;padding: 0px;margin: 0px;border: none; color: green" class="col-1 lbutton btn btn-md"><i class="fa fa-md">enroll</i></button>
+
+
+                  <div>
+                      <h5 style="display: inline"> Professor:</h5> {{enrollment.FacultyName}}
+                  </div>
+                  <br>
+                  <hr>
+                 <!-- <div>
+                      <h5 style="display: inline"> Availability: </h5>{{enrollment.availability}}
+                  </div>
+                  <div> <h5 style="display: inline" > Rating: </h5> {{enrollment.rating}}
+                  </div>
+              </div>-->
+  </div>
+  </div>
+
+</div>

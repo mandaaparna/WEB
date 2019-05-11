@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Generate Paper</h1>
+<mat-dialog-content>
+	<div style="min-height:400px; " id="ty">
+
+		<select class="offset-3" id="ls" (change)="hide()">
+			<option value="M">Multiple Choice Question</option>
+			<option value="D">Descriptive Question</option>
+
+		</select>
+		<button class="offset-1" (click)="add()" style="padding: 0px;border: none;"><i class="fa fa-plus fa-2x fa-lg" style="color:green;background-color: white"></i></button>
+		<br>
+		<div *ngFor="let v of v1" id="v_1">
+
+			<label class="hd col-3">Number Of Questions</label>
+			<input class="offset-1 hd" type="text" id="A{{v}}">
+			<br>
+			<label class="hd col-3" >Difficulty Level</label>
+			<select id="B{{v}}" class="offset-1">
+				<option value="Ea">Easy</option>
+				<option value="Md">Medium</option>
+				<option value="Df">Difficult</option></select>
+			<br>
+<hr>
+		</div>
+			<div *ngFor="let va of v2" id="v_2">
+
+				<label class="hd col-3">Number Of Questions</label>
+				<input class="offset-1 hd" type="text" id="Av{{va}}">
+				<br>
+				<label class="hd col-3" >Difficulty Level</label>
+				<select id="Bv{{va}}" class="offset-1">
+				<option value="Ea">Easy</option>
+				<option value="Md">Medium</option>
+					<option value="Df">Difficult</option></select>
+
+				<br>
+				<hr>
+
+			</div>
+		</div>
+	<div style="min-height:400px; " id="ty1">
+		<div *ngFor="let vz of final_res1" id="v_4">
+         Question {{vz.ind}} : {{vz.Question }}<br>
+		</div>
+		<div *ngFor="let vz of final_res" id="v_5">
+			Question {{vz.ind}} : {{vz.Question }}<br>
+			A.){{vz.OptA}} &nbsp;&nbsp; B.){{vz.OptB}} &nbsp;&nbsp; C.){{vz.OptC}} &nbsp;&nbsp; D.){{vz.OptD}}<br>
+		</div>
+	</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+	<button mat-button style="background-color: green" (click)="generate()"><strong>Generate</strong></button>
+	<button mat-button type="button" mat-dialog-close><strong>Cancel</strong></button>
+</mat-dialog-actions>
